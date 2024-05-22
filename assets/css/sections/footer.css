@@ -1,0 +1,500 @@
+#footer {
+  display: flex;
+  justify-content: center;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/*-----------SERVICES ICONS------------*/
+
+.services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 25px 75px 25px;
+  width: 100%;
+}
+
+.services-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 1290px;
+}
+
+.services-content h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: -1px;
+  font-weight: 800;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 2em;
+  grid-column-gap: 6em;
+}
+
+.services-grid img {
+  cursor: pointer;
+  transition: all ease 500ms;
+  filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.1));
+  -webkit-filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.1));
+}
+
+.services-grid img:hover {
+  transform: translateY(-10px);
+}
+
+/*-----------SERVICES ICONS ENDS------------*/
+
+/*-----------CONTACT BANNER------------*/
+
+.contact-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 40px 0;
+}
+
+.content-contact-banner {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+  width: 1290px;
+}
+
+.content-contact-banner a {
+  text-decoration: none;
+  transition: all ease 500ms;
+}
+
+.content-contact-banner a:hover {
+  transform: scale(0.9);
+}
+
+.content-contact-banner span {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--tertiary-color);
+}
+
+.contact-btn {
+  background-color: var(--secondary-color);
+  padding: 15px 25px;
+  border-radius: 50px;
+}
+
+.contact-btn span {
+  color: var(--tertiary-color);
+}
+
+/*-----------CONTACT BANNER ENDS------------*/
+
+/*-----------lOCATIONS------------*/
+
+.locations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 50px 25px;
+}
+
+.content-locations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  width: 1290px;
+  padding: 15px 25px 50px;
+}
+
+.areas {
+  text-transform: capitalize;
+  font-size: 2em;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.locations-single-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3em;
+}
+
+.single-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all ease 200ms;
+}
+
+.single-location span {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/*-----------lOCATIONS ENDS------------*/
+
+/*-----------ICONS BANNER------------*/
+
+.icons-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--secondary-color);
+  padding: 20px 0;
+}
+
+.icons-banner-container {
+  display: flex;
+  justify-content: center;
+  gap: 8em;
+  width: 1290px;
+}
+
+/*-----------ICONS BANNER ENDS------------*/
+
+/*-----------MAIN FOOTER------------*/
+
+.main-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  background-color: var(--tertiary-color);
+  box-shadow: -1px -2px 12px -1px rgba(0,0,0,0.38);
+  -webkit-box-shadow: -1px -2px 12px -1px rgba(0,0,0,0.38);
+  -moz-box-shadow: -1px -2px 12px -1px rgba(0,0,0,0.38);
+  z-index: 11;
+}
+
+.main-footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1290px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.footer-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  width: 30%;
+}
+
+.footer-btn a {
+  text-decoration: none;
+  color: var(--tertiary-color);
+  transition: all ease 500ms;
+}
+
+.footer-btn a:hover {
+  transform: scale(0.9);
+}
+
+.footer-menu a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.footer-btn span {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.footer-contact-btn {
+  background-color: var(--primary-color);
+  padding: 10px 50px;
+  border-radius: 50px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.socials img {
+  cursor: pointer;
+  transition: all ease 500ms;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+}
+
+#footer-logo {
+  width: 250px;
+}
+
+/*-----------MAIN FOOTER ENDS------------*/
+
+/*-----------LEGAL BANNER------------*/
+
+.legal-banner {
+  width: 100%;
+  background-color: var(--quart-color);
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 11;
+}
+
+.legal-banner-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1290px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.opm-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.opm-logo img {
+  height: 40px;
+  width: 150px;
+  object-fit: contain;
+}
+
+/*-----------LEGAL BANNER ENDS------------*/
+
+/*-----------MEDIA QUERIES------------*/
+
+@media (width <= 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+
+  .locations-single-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3em;
+  }
+}
+
+@media (width <= 1000px) {
+  .content-contact-banner {
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+  }
+
+  .content-contact-banner span {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+  .areas {
+    font-size: 1.6em;
+  }
+
+  .locations {
+    padding: 40px 40px;
+  }
+
+  .footer-contact-btn {
+    width: 250px;
+  }
+
+  .footer-contact-btn span {
+    font-size: 18px;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.2em;
+  }
+
+  .main-footer-container {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icons-banner-container {
+    gap: 4em;
+  }
+
+  .footer-contact-btn {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    padding: 10px;
+  }
+}
+
+@media (width <= 800px) {
+  .content-contact-banner {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .content-locations {
+    flex-wrap: wrap;
+  }
+
+  .footer-btn {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.2em;
+  }
+
+  .footer-contact-btn span {
+    font-size: 16px;
+  }
+}
+
+@media (width <= 768px) {
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+
+  .icons-banner-container {
+    gap: 0.5em;
+  }
+  .footer-contact-btn span {
+    font-size: 18px;
+  }
+  .main-footer-container {
+    justify-content: center;
+  }
+  .footer-menu {
+    font-size: 15px;
+    width: 25%;
+  }
+
+  .footer-contact-btn {
+    padding: 10px 25px;
+  }
+
+  .main-footer-container,
+  .legal-banner-container {
+    flex-direction: column;
+  }
+
+  .main-footer-container {
+    gap: 1em;
+  }
+
+  .footer-menu,
+  .contact-btn {
+    width: 75%;
+  }
+
+  .contact-btn {
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 50px;
+    justify-content: center;
+    gap: 10px;
+    width: 300px;
+  }
+
+  .contact-btn span {
+    font-size: 18px;
+  }
+
+  .locations-single-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3em;
+  }
+
+  .logo-container {
+    width: 250px;
+  }
+}
+
+@media (width <= 500px) {
+  .contact-btn {
+    width: 300px;
+  }
+
+  .icons-banner-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px 0;
+  }
+
+  .icons-banner-container img {
+    width: 15%;
+  }
+
+  .content-contact-banner {
+    padding: 20px 10px;
+  }
+
+  .locations-single-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #footer-logo {
+    width: 100% !important;
+  }
+
+  .legal-banner-container {
+    padding: 10px;
+  }
+
+  .legal-banner-container div{
+    text-align: center;
+  }
+
+}

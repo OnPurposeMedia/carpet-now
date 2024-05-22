@@ -1,0 +1,158 @@
+.side-menu {
+  height: 100%;
+  background-color: var(--tertiary-color);
+  z-index: 9;
+  position: fixed;
+  left: -100%;
+  transition: all ease 500ms;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 20px 0px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.scroll-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: scroll;
+  height: 70vh;
+  padding: 15px 10px 15px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.scroll-mobile::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scroll-mobile::-webkit-scrollbar-track {
+  background: #f2f2f2;
+  border-radius: 6px;
+}
+
+.scroll-mobile::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+}
+
+.menu-container a {
+  background-color: var(--primary-color);
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--tertiary-color);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 700;
+  box-shadow: 0px 5px 20px -9px rgba(0, 0, 0, 0.4);
+}
+
+.side-menu-open {
+  left: 0;
+  transition: all ease 500ms;
+}
+
+nav {
+  width: 100%;
+  height: 75px;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+.whole-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: var(--tertiary-color);
+  box-shadow: 2px 3px 17px -4px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 3px 17px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 17px -4px rgba(0,0,0,0.75);
+}
+
+#phone {
+  margin-right: 15px;
+  fill: var(--primary-color);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+@media (width>=600px) {
+  #logo {
+    width: 30%;
+  }
+
+  .side-menu {
+    width: 50%;
+  }
+}
+
+.whole-nav {
+  display: none;
+  box-shadow: none;
+}
+
+#logo {
+  width: 150px;
+  object-fit: cover;
+}
+
+@media (width <= 1130px) {
+  .whole-nav {
+    display: flex;
+  }
+}
