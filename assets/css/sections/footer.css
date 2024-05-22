@@ -151,6 +151,10 @@
   font-weight: 700;
 }
 
+.single-location span a {
+  color: var(--quart-color);
+}
+
 /*-----------lOCATIONS ENDS------------*/
 
 /*-----------ICONS BANNER------------*/

@@ -80,7 +80,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--secondary-color);
+  background-color: var(--tertiary-color);
 }
 
 .section-2 {
@@ -104,17 +104,17 @@ main {
   letter-spacing: -1;
   font-weight: 900;
   margin-top: 10px;
-  color: var(--tertiary-color);
+  color: var(--quart-color);
 }
 
 .section-2__right h3 {
-  color: var(--tertiary-color);
+  color: var(--quart-color);
 }
 
 .section-2__right p {
   margin-top: 20px;
   width: 100%;
-  color: var(--tertiary-color);
+  color: var(--quart-color);
 }
 
 .section-2__left {
