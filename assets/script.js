@@ -13,6 +13,9 @@ const $navbar = document.getElementById("mobile-nav");
 const $schedule = document.getElementById("scheduleBtn");
 const $swiper = document.querySelector('.mySwiper');
 
+let loadedDynamicElements = 0;
+const totalDynamicElements = 2;
+
 let lastScrollY = window.scrollY;
 let isOpen = false;
 
@@ -20,8 +23,8 @@ let isOpen = false;
 
 const replacePhoneNumber = () => {
   const oldPhoneNumber = '(978)-487-5396';
-  const newPhoneNumber = '(909) 923-7071';
-  const newPhoneNumberHref = '9099237071';
+  const newPhoneNumber = '(888) 423-7337';
+  const newPhoneNumberHref = '8884237337';
 
   const links = document.getElementsByTagName('a');
 
@@ -41,48 +44,40 @@ const replacePhoneNumber = () => {
 /* Function to handle call swapping script after all elements have loaded */
 
 const loadPhoneNumberScript = () => {
-
   replacePhoneNumber();
 
   const script = document.createElement('script');
   script.src = 'https://s.ksrndkehqnwntyxlhgto.com/120658.js';
   script.onerror = () => console.error('Failed to load script1');
   document.body.appendChild(script);
-
 };
 
-/*Recyclable function to fetch the HTML content and return plain text.*/
+/* Recyclable function to fetch the HTML content and return plain text. */
 const dynamicPieces = async url => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw {
-        status: response.status,
-        message:
-          "🚬 Failed to render, check every execution of function dynamicPieces",
-      };
+      throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
     }
-    const plainHTML = response.text();
+    const plainHTML = await response.text();  // Make sure to await the response.text() method.
     return plainHTML;
   } catch (error) {
-    console.error(error);
+    console.error("🚬 Failed to render, check every execution of function dynamicPieces:", error);
+    return "";  // Return an empty string in case of error to prevent further issues.
   }
 };
 
 /* Rendering header buttons, using dynamicPieces */
 const renderBtns = () => {
-  return new Promise((resolve, reject) => {
-    document.addEventListener("DOMContentLoaded", async event => {
-      try {
-        const btnURL = "/assets/dynamic/heroButtons.html";
-        const btnHTML = await dynamicPieces(btnURL);
-        $headerButtonsContainer.innerHTML = btnHTML;
-        resolve();
-      } catch (error) {
-        console.error(error);
-        reject(error);
-      }
-    });
+  document.addEventListener("DOMContentLoaded", async event => {
+    try {
+      const btnURL = "/assets/dynamic/heroButtons.html";
+      const btnHTML = await dynamicPieces(btnURL);
+      $headerButtonsContainer.innerHTML = btnHTML;
+      document.dispatchEvent(new Event("dynamicContentLoaded"));
+    } catch (error) {
+      console.error(error);
+    }
   });
 };
 
@@ -104,53 +99,43 @@ const getPhoneNumber = () => {
   const currentURL = window.location.pathname;
 
   const phoneNumbers = {
-    '/air-conditioning/ac-repair': '(909) 916-0030',
-    '/air-conditioning/ac-maintenance': '(909) 916-0030',
-    '/air-conditioning/ac-install': '(909) 916-0030',
-    '/air-conditioning/mini-splits': '(909) 916-0030',
-    '/heating/heating-installation': '(909) 918-4709',
-    '/heating/heating-maintenance': '(909) 918-4709',
-    '/heating/heating-repair': '(909) 918-4709',
-    '/heatpumps/heatpump-installation': '(909) 703-5684',
-    '/heatpumps/heatpump-maintenance': '(909) 703-5684',
-    '/heatpumps/heatpump-repair': '(909) 703-5684',
+    '/air-conditioning/ac-repair': '(541) 215-8703',
+    '/heating/heating-repair': '(541) 216-4559',
+    '/air-conditioning/ac-maintenance': '(541) 209-6379',
+    '/heatpumps/heatpump-repair': '(541) 216-7113',
 
-    'default': '(909) 845-3237'  // Default phone number if URL doesn't match any case
+    'default': '(541) 205-9753'  // Default phone number if URL doesn't match any case
   };
 
 
   return phoneNumbers[currentURL] || phoneNumbers['default'];
 };
 
-/* Rendering footer, using dynamicPieces */
 const renderFooter = () => {
-  return new Promise((resolve, reject) => {
-    document.addEventListener("DOMContentLoaded", async event => {
-      try {
-        const footURL = "/assets/dynamic/footer.html";
-        const footHTML = await dynamicPieces(footURL);
-        const footer = document.querySelector('footer');  // Ensure you have a footer element in your HTML.
-        if (footer) {
-          footer.innerHTML = footHTML;
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      const footURL = "/assets/dynamic/footer.html";
+      const footHTML = await dynamicPieces(footURL);
+      const footer = document.querySelector('footer');  // Ensure you have a footer element in your HTML.
+      if (footer) {
+        footer.innerHTML = footHTML;
 
-          const phoneNumber = getPhoneNumber();
-          const phoneElement = document.getElementById('phone-number');
-          if (phoneElement) {
-            phoneElement.textContent = `${phoneNumber}`;
-          } else {
-            console.error('Element with id "phone-number" not found in the footer.');
-          }
-
-          resolve();
+        // Insert phone number in the <p> element with id "phone-number"
+        const phoneNumber = getPhoneNumber();
+        const phoneElement = document.getElementById('phone-number');
+        if (phoneElement) {
+          phoneElement.textContent = `${phoneNumber}`;
         } else {
-          console.error("Footer element not found on the page.");
-          reject("Footer element not found on the page.");
+          console.error('Element with id "phone-number" not found in the footer.');
         }
-      } catch (error) {
-        console.error("Error rendering footer:", error);
-        reject(error);
+
+        document.dispatchEvent(new Event("dynamicContentLoaded"));
+      } else {
+        console.error("Footer element not found on the page.");
       }
-    });
+    } catch (error) {
+      console.error("Error rendering footer:", error);
+    }
   });
 };
 
@@ -245,6 +230,8 @@ window.addEventListener("scroll", () => {
   lastScrollY = currentScrollY;
 });
 
+/*----header hiding ends------*/
+
 
 /*----autoplay handling------*/
 
@@ -269,23 +256,14 @@ const autoPlay = () => {
 
 /*----autoplay handling ends------*/
 
-/*----waiting for dynamic pieces to execute phone script insertion------*/
-
-Promise.all([renderFooter(), renderBtns()])
-  .then(loadPhoneNumberScript(), console.log("replacing"))
-  .catch(error => console.error('One of the promises failed:', error));
-
-  /*----waiting for dynamic pieces to execute phone script insertion------*/
-
-  /*----handling phone script in pages with less than 2 dynamic renders------*/
-
-const phoneSwapIfNotDynamic = () => {
-  if(window.location.href.includes("contact") || window.location.href.includes("thank")) {
-    loadPhoneNumberScript()
+document.addEventListener("dynamicContentLoaded", () => {
+  const currentUrl = window.location.href;
+  loadedDynamicElements++;
+  if (loadedDynamicElements === totalDynamicElements || currentUrl.includes("thank-you") || currentUrl.includes("contact")) {
+    console.log("replacing");
+    loadPhoneNumberScript();
   }
-}
-
-  /*----handling phone script in pages with less than 2 dynamic renders------*/
+});
 
 /*Executions*/
 renderFooter();
@@ -294,4 +272,3 @@ renderCards();
 renderCoupons();
 createLinkInLogos();
 generateTestimonials(testimonials);
-phoneSwapIfNotDynamic();
