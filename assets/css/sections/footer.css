@@ -277,7 +277,7 @@
 
 .legal-banner {
   width: 100%;
-  background-color: var(--quart-color);
+  background-color: var(--secondary-color);
   display: flex;
   justify-content: center;
   padding: 10px 0;
@@ -290,7 +290,8 @@
   align-items: center;
   width: 1290px;
   font-size: 0.9rem;
-  color: white;
+  font-weight: 600;
+  color: var(--tertiary-color);
 }
 
 .opm-logo {
@@ -301,8 +302,7 @@
 }
 
 .opm-logo img {
-  height: 40px;
-  width: 150px;
+  width: 120px;
   object-fit: contain;
 }
 
