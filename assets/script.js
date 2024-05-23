@@ -23,7 +23,7 @@ let isOpen = false;
 
 const replacePhoneNumber = () => {
   const oldPhoneNumber = '(978)-487-5396';
-  const newPhoneNumber = '(888) 423-7337';
+  const newPhoneNumber = '888-423-7337';
   const newPhoneNumberHref = '8884237337';
 
   const links = document.getElementsByTagName('a');
