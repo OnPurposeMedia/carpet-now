@@ -1,45 +1,45 @@
 const testimonials = [
   {
-    name: "Stefano Lonardi",
-    image: "/assets/images/greviews/stefano-lonardi.png",
+    name: "Nicole Lander",
+    image: "/assets/images/greviews/nicole-lander.png",
     rating: 5,
     review:
-      "True Blue Heating has been great. Shane and his team replaced my old A/C-furnace with a new Bosch heat pump for a very competitive price. They even upgraded my thermostat to a Google Nest Pro with no additional cost",
+      "Amazing and fast service! We are obsessed with our new carpet. Such an awesome and thorough team.",
   },
   {
-    name: "Marco Garcia",
-    image: "/assets/images/greviews/marco-garcia.png",
+    name: "Joshua Garza",
+    image: "/assets/images/greviews/joshua-garza.png",
     rating: 5,
     review:
-      "The service was excellent! True Blue Heating and AC reached back at me very quickly and was able to come out the next day. Kevin was outstanding and very informative about my HVAC system. He was very professional and I would highly recommend.",
+      "I had a great experience with Carpet Now. Overall they were responsive, professional and provided great service during install. Would highly recommend.",
   },
   {
-    name: "Andrea Karganilla",
-    image: "/assets/images/greviews/andrea-karganilla.png",
+    name: "Constance Odom",
+    image: "/assets/images/greviews/constance-odom.png",
     rating: 5,
     review:
-      "True Blue was the 3rd company we had out to diagnose a problem with our AC. Instantly, Kevin knew what the issue was and fixed it within 10 minutes. The other companies were just trying to upsell a whole new HVAC system to us. Very grateful for Kevin and True Blue and their honesty.",
+      "We had a great experience with Carpet Now installing carpet in our new home. Chuck went above and beyond to help us pick out what we wanted. I would recommend them to others because of their professionalism and great value.",
   },
   {
-    name: "Nestor Jimenez",
-    image: "/assets/images/greviews/nestor-jimenez.png",
+    name: "Shauna Gilbert",
+    image: "/assets/images/greviews/shauna-gilbert.png",
     rating: 5,
     review:
-      "It has been an absolute pleasure to work with True Blue. All the Employees at this company are very professional and responsive. I especially appreciate Shane, Kim, and Kevin as they went above and beyond fixing my issue when they were very busy for the next few days.",
+      "We’re in the process of moving into a new place and realized we needed to quickly re-carpet. Carpet Now came to the rescue - brought samples to the house the day I contacted them and the carpet was installed just a few days later. Would definitely recommend and hire again!",
   },
   {
-    name: "Debbie Gariador",
-    image: "/assets/images/greviews/debbie-gariador.png",
+    name: "Linda Johnson",
+    image: "/assets/images/greviews/linda-johnson.png",
     rating: 5,
     review:
-      "We are very happy with the service we receive from True Blue Heating & Air.  Their response time is the best!",
+      "Ordered, set date, installed. Everyone very professional. Cleaned up after installation. Very satisfied customer. Job well done!",
   },
   {
-    name: "Anthony Garcia",
-    image: "/assets/images/greviews/anthony-garcia.png",
+    name: "Hallie Mancuso",
+    image: "/assets/images/greviews/hallie-mancuso.png",
     rating: 5,
     review:
-      "We have had True blue out to service and replace  a “condenser  and a blower fan “ for are HVAC systems . they go above and beyond Shane and Kevin are great professionals . I Highly recommend them for any of you Heating or A/C needs",
+      "The fastest, easiest way to replace your old carpet. They did a great job from helping me select the best product, to a quick and easy installation process. Very pleased!",
   },
 ];
 

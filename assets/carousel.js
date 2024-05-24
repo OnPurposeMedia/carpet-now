@@ -37,7 +37,7 @@ const generateTestimonials = testimonials => {
 
     const $googleLogo = document.createElement("a");
     $googleLogo.href =
-      "https://maps.app.goo.gl/dqxJv317grXg1jqs5";
+      "https://maps.app.goo.gl/xyGr8VPeG8JZB9G38";
     $googleLogo.setAttribute("target", "_blank");
     $googleLogo.classList.add("logo-review");
 
