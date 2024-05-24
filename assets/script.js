@@ -11,7 +11,6 @@ const $hamburguerButton = document.getElementById("hamburger-btn");
 const $sideMenu = document.getElementById("side-menu");
 const $navbar = document.getElementById("mobile-nav");
 const $schedule = document.getElementById("scheduleBtn");
-const $swiper = document.querySelector('.mySwiper');
 
 let lastScrollY = window.scrollY;
 let isOpen = false;
@@ -214,20 +213,31 @@ $hamburguerButton.addEventListener("click", hamburguerLogic);
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
-
-  if (currentScrollY < lastScrollY) {
+  let threshold;
+  threshold = window.innerHeight / 3;
+  if (window.scrollY > threshold){
+    if (currentScrollY < lastScrollY) {
       $navbar.style.opacity = "1";
+      $navbar.style.pointerEvents = 'all';
   } else {
       $navbar.style.opacity = "0";
+      $navbar.style.pointerEvents = 'none';
   }
+  } else {
+    $navbar.style.opacity = '1';
+    $navbar.style.pointerEvents = 'all';
+  }
+
 
   if (window.location.pathname !== '/contact-us') {
       if ($schedule) {
+        if (window.scrollY > threshold){
           if (currentScrollY < lastScrollY) {
-              $schedule.style.opacity = "1";
-          } else {
-              $schedule.style.opacity = "0";
-          }
+            $schedule.style.opacity = "1";
+        } else {
+            $schedule.style.opacity = "0";
+        }
+        }
       }
   }
 
