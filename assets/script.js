@@ -13,9 +13,6 @@ const $navbar = document.getElementById("mobile-nav");
 const $schedule = document.getElementById("scheduleBtn");
 const $swiper = document.querySelector('.mySwiper');
 
-let loadedDynamicElements = 0;
-const totalDynamicElements = 2;
-
 let lastScrollY = window.scrollY;
 let isOpen = false;
 
@@ -69,15 +66,18 @@ const dynamicPieces = async url => {
 
 /* Rendering header buttons, using dynamicPieces */
 const renderBtns = () => {
-  document.addEventListener("DOMContentLoaded", async event => {
-    try {
-      const btnURL = "/assets/dynamic/heroButtons.html";
-      const btnHTML = await dynamicPieces(btnURL);
-      $headerButtonsContainer.innerHTML = btnHTML;
-      document.dispatchEvent(new Event("dynamicContentLoaded"));
-    } catch (error) {
-      console.error(error);
-    }
+  return new Promise((resolve, reject) => {
+    document.addEventListener("DOMContentLoaded", async event => {
+      try {
+        const btnURL = "/assets/dynamic/heroButtons.html";
+        const btnHTML = await dynamicPieces(btnURL);
+        $headerButtonsContainer.innerHTML = btnHTML;
+        resolve();
+      } catch (error) {
+        console.error(error);
+        reject(error);
+      }
+    });
   });
 };
 
@@ -111,31 +111,35 @@ const getPhoneNumber = () => {
   return phoneNumbers[currentURL] || phoneNumbers['default'];
 };
 
+/* Rendering footer, using dynamicPieces */
 const renderFooter = () => {
-  document.addEventListener("DOMContentLoaded", async () => {
-    try {
-      const footURL = "/assets/dynamic/footer.html";
-      const footHTML = await dynamicPieces(footURL);
-      const footer = document.querySelector('footer');  // Ensure you have a footer element in your HTML.
-      if (footer) {
-        footer.innerHTML = footHTML;
+  return new Promise((resolve, reject) => {
+    document.addEventListener("DOMContentLoaded", async event => {
+      try {
+        const footURL = "/assets/dynamic/footer.html";
+        const footHTML = await dynamicPieces(footURL);
+        const footer = document.querySelector('footer');  // Ensure you have a footer element in your HTML.
+        if (footer) {
+          footer.innerHTML = footHTML;
 
-        // Insert phone number in the <p> element with id "phone-number"
-        const phoneNumber = getPhoneNumber();
-        const phoneElement = document.getElementById('phone-number');
-        if (phoneElement) {
-          phoneElement.textContent = `${phoneNumber}`;
+          const phoneNumber = getPhoneNumber();
+          const phoneElement = document.getElementById('phone-number');
+          if (phoneElement) {
+            phoneElement.textContent = `${phoneNumber}`;
+          } else {
+            console.error('Element with id "phone-number" not found in the footer.');
+          }
+
+          resolve();
         } else {
-          console.error('Element with id "phone-number" not found in the footer.');
+          console.error("Footer element not found on the page.");
+          reject("Footer element not found on the page.");
         }
-
-        document.dispatchEvent(new Event("dynamicContentLoaded"));
-      } else {
-        console.error("Footer element not found on the page.");
+      } catch (error) {
+        console.error("Error rendering footer:", error);
+        reject(error);
       }
-    } catch (error) {
-      console.error("Error rendering footer:", error);
-    }
+    });
   });
 };
 
@@ -232,43 +236,28 @@ window.addEventListener("scroll", () => {
 
 /*----header hiding ends------*/
 
-
-/*----autoplay handling------*/
-
-const autoPlay = () => {
-  const stopAutoplay = () => {
-    let swiper = document.querySelector('.mySwiper').swiper;
-    swiper.autoplay.stop();
-  };
-
-  const startAutoplay = () => {
-    let swiper = document.querySelector('.mySwiper').swiper;
-    swiper.autoplay.start();
-  };
-
-  $swiper.addEventListener('mouseenter', stopAutoplay);
-  $swiper.addEventListener('mouseleave', startAutoplay);
-
-  $swiper.addEventListener('touchstart', stopAutoplay, { passive: true });
-  $swiper.addEventListener('touchend', startAutoplay, { passive: true });
-
-}
-
 /*----autoplay handling ends------*/
 
-document.addEventListener("dynamicContentLoaded", () => {
-  const currentUrl = window.location.href;
-  loadedDynamicElements++;
-  if (loadedDynamicElements === totalDynamicElements || currentUrl.includes("thank-you") || currentUrl.includes("contact")) {
-    console.log("replacing");
-    loadPhoneNumberScript();
+/*----waiting for dynamic pieces to execute phone script insertion------*/
+
+Promise.all([renderFooter(), renderBtns()])
+  .then(loadPhoneNumberScript(), console.log("replacing"))
+  .catch(error => console.error('One of the promises failed:', error));
+
+  /*----waiting for dynamic pieces to execute phone script insertion------*/
+
+  /*----handling phone script in pages with less than 2 dynamic renders------*/
+
+const phoneSwapIfNotDynamic = () => {
+  if(window.location.href.includes("contact") || window.location.href.includes("thank")) {
+    loadPhoneNumberScript()
   }
-});
+}
 
 /*Executions*/
-renderFooter();
-renderBtns();
+
 renderCards();
 renderCoupons();
 createLinkInLogos();
 generateTestimonials(testimonials);
+phoneSwapIfNotDynamic();
