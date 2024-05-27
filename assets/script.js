@@ -246,8 +246,6 @@ window.addEventListener("scroll", () => {
 
 /*----header hiding ends------*/
 
-/*----autoplay handling ends------*/
-
 /*----waiting for dynamic pieces to execute phone script insertion------*/
 
 Promise.all([renderFooter(), renderBtns()])

@@ -100,10 +100,10 @@ body {
 }
 
 .no-shadow-png {
-  will-change: filter;
+  /* will-change: filter;
   transition: filter 300ms;
-  box-shadow: none !important;
-  /* -webkit-filter: drop-shadow(0 0 2em #373739aa); */
+  box-shadow: none !important; */
+  max-height: 575px;
 }
 
 .form-sections {
