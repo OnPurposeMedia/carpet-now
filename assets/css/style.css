@@ -108,17 +108,7 @@ body {
 
 .form-sections {
   background-color: var(--primary-color);
-  padding: 50px 0;
   width: 100%;
-}
-
-.form-sections h2 {
-  text-align: center;
-  color: var(--tertiary-color);
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: 800;
 }
 
 .special-title {
@@ -323,9 +313,6 @@ body {
     font-size: 1.2rem;
   }
 
-  .form-sections {
-    padding: 50px 0 20px;
-  }
 }
 
 /*------------SWIPER--------------*/

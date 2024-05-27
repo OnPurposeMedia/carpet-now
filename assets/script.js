@@ -2,7 +2,7 @@ import { generateTestimonials } from "/assets/carousel.js";
 import { testimonials } from "/assets/testimonials.js";
 
 const $headerButtonsContainer = document.getElementById("bannerCTA");
-const $footer = document.getElementById("footer");
+const $contactBanner = document.getElementById("contact-section");
 const $couponSection = document.querySelector(".coupons");
 const $cards = document.getElementById("icon-boxes");
 
@@ -75,6 +75,22 @@ const renderBtns = () => {
       } catch (error) {
         console.error(error);
         reject(error);
+      }
+    });
+  });
+};
+
+const renderContactBanner = () => {
+  return new Promise((resolve, reject) => {
+    document.addEventListener("DOMContentLoaded", async event => {
+      try {
+        const contactBanner = "/assets/dynamic/contact-banner.html"
+        const cbHtml = await dynamicPieces(contactBanner);
+        $contactBanner.innerHTML = cbHtml;
+        resolve();
+      } catch (error) {
+        console.log(error)
+        reject(error)
       }
     });
   });
@@ -248,7 +264,7 @@ window.addEventListener("scroll", () => {
 
 /*----waiting for dynamic pieces to execute phone script insertion------*/
 
-Promise.all([renderFooter(), renderBtns()])
+Promise.all([renderFooter(), renderBtns(), renderContactBanner()])
   .then(loadPhoneNumberScript(), console.log("replacing"))
   .catch(error => console.error('One of the promises failed:', error));
 
