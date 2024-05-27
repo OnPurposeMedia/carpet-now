@@ -36,6 +36,19 @@ const replacePhoneNumber = () => {
   });
 };
 
+const replaceContactLink = () => {
+  const newLink = "/contact-us.html";
+
+  const links = document.querySelectorAll('a[href="#form-section"]');
+  console.log(links);
+
+  links.forEach(link => {
+    link.href = newLink;
+  });
+};
+
+document.addEventListener("DOMContentLoaded", replaceContactLink());
+
 
 /* Function to handle call swapping script after all elements have loaded */
 
@@ -285,3 +298,4 @@ renderCoupons();
 createLinkInLogos();
 generateTestimonials(testimonials);
 phoneSwapIfNotDynamic();
+

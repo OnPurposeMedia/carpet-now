@@ -57,6 +57,7 @@
 
 .contact-section {
     display: flex;
+    flex-direction: column;
     width: 1290px;
     justify-content: center;
     align-items: center;
@@ -66,7 +67,7 @@
 }
 
 .contact-us-text {
-    width: 60%;
+    width: 100%;
     color: var(--tertiary-color);
     font-size: 18px;
     font-weight: 500;
