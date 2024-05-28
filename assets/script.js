@@ -132,7 +132,7 @@ const getPhoneNumber = () => {
     '/air-conditioning/ac-maintenance': '(541) 209-6379',
     '/heatpumps/heatpump-repair': '(541) 216-7113',
 
-    'default': '(541) 205-9753'  // Default phone number if URL doesn't match any case
+    'default': ''  // Default phone number if URL doesn't match any case
   };
 
 
