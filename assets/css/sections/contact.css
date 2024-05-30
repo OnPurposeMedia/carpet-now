@@ -1,18 +1,18 @@
 .contact-container {
     width: 100%;
-    padding: 75px 20px 0;
+    padding: 75px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: var(--secondary-color);
+    background-color: var(--tertiary-color);
 }
 
 .contact-items-only-mobile {
     display: none;
 }
 
-/* .contact-us-title {
+.contact-us-title {
     margin-top: 40px;
     width: 100%;
     display: flex;
@@ -21,7 +21,7 @@
     flex-direction: column;
     color: var(--quart-color);
     border: 1px solid black;
-} */
+}
 
 .contact-details-info-container {
     display: flex;
@@ -35,13 +35,12 @@
 
 .contact-details-div a {
     text-decoration: none;
-    color: var(--tertiary-color);
+    color: var(--quart-color);
     font-weight: 500;
 }
 
 .contact-details-div svg {
     position: absolute;
-    fill: var(--secondary-color);
     margin-right: 5px;
     height: 25px;
     width: 25px;
@@ -53,28 +52,30 @@
     margin-bottom: -20px;
     letter-spacing: -1px;
     font-weight: 900;
-    color: var(--tertiary-color);
+    color: var(--quart-color);
     text-transform: uppercase;
     text-align: center;
 }
 
 .contact-section {
     display: flex;
-    flex-direction: column;
     width: 1290px;
     justify-content: center;
-    align-items: center;
     gap: 50px;
-    height: 100%;
-    padding: 30px 0 0;
+    padding: 50px 25px 50px 50px;
+    margin-bottom: 50px;
+    border: 3px solid var(--primary-color);
+    border-radius: 25px;
+    box-shadow: 3px 3px 7px -2px rgba(0,0,0,0.34);
+    -webkit-box-shadow: 3px 3px 7px -2px rgba(0,0,0,0.34);
+    -moz-box-shadow: 3px 3px 7px -2px rgba(0,0,0,0.34);
 }
 
 .contact-us-text {
     width: 100%;
-    color: var(--tertiary-color);
+    color: var(--quart-color);
     font-size: 18px;
     font-weight: 500;
-    text-align: center;
 }
 
 .contact-us-text h2 {
@@ -82,18 +83,12 @@
     letter-spacing: -1px;
     font-weight: 900;
     margin-top: 10px;
-    color: var(--tertiary-color);
+    color: var(--quart-color);
 }
 
 .contact-us-form-section {
     width: 100%;
-    height: 100vh;
     margin: 0 !important;
-}
-
-.calendly-inline-widget {
-    height: 100%;
-    margin-top: -50px;
 }
 
 .contact-socials {
@@ -103,7 +98,7 @@
     gap: 10px;
     width: 30%;
     margin-top: 10px;
-    color: var(--tertiary-color);
+    color: var(--quart-color);
 }
 
 .contact-socials a {
@@ -114,9 +109,35 @@
     transform: scale(1.1);
 }
 
+.second-contact-section {
+    width: 70%;
+}
+
+.second-contact-section h2 {
+    font-size: 48px;
+    letter-spacing: -1px;
+    font-weight: 900;
+    margin-top: 10px;
+    color: var(--quart-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 @media (width <=1400px) {
     .contact-section {
         width: 100%;
+    }
+
+    .contact-us-text h2 {
+        font-size: 2em;
+    }
+
+    .second-contact-section {
+        width: 100%;
+    }
+
+    .second-contact-section h2 {
+        font-size: 2.5em;
     }
 }
 
@@ -124,15 +145,27 @@
     .contact-section {
         width: 100%;
     }
+    .contact-us-text h2 {
+        font-size: 1.5em;
+    }
+
+    .second-contact-section {
+        width: 100%;
+    }
+
+    .second-contact-section h2 {
+        font-size: 2em;
+    }
 }
 
 @media (width <=600px) {
     .contact-container {
-        padding-top: 0px;
+        padding: 20px;
     }
 
     .contact-items-only-mobile {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 10px;
@@ -149,13 +182,13 @@
 
     .contact-us-title a {
         text-decoration: none;
-        color: var(--tertiary-color);
+        color: var(--quart-color);
         font-size: 1.6rem;
         font-weight: 800;
     }
 
     .contact-us-title svg {
-        fill: var(--tertiary-color);
+        fill: var(--quart-color);
     }
 
     .contact-details-div svg {
@@ -167,6 +200,8 @@
     }
 
     .contact-section {
+        flex-direction: column-reverse;
+        padding: 25px;
         width: 100%;
         gap: 0;
     }
@@ -189,5 +224,9 @@
 
     #contact-h3 {
         display: none;
+    }
+
+    .second-contact-section {
+        width: 100%;
     }
 }
