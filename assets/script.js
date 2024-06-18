@@ -286,34 +286,17 @@ Promise.all([renderFooter(), renderBtns(), renderContactBanner()])
   /*----handling phone script in pages with less than 2 dynamic renders------*/
 
   document.addEventListener('DOMContentLoaded', () => {
-    const oldLink = 'https://call-carpetnow.com/contact-us';
-    const newLink = 'https://call-carpetnow.com/book-online';
-    const buttonText = 'Book Now';
+    const oldLink = '/contact-us';
+    const newLink = '/book-online';
+    const buttonText = 'book now';
 
-    // Get all buttons with the class "classic-button"
     const buttons = document.querySelectorAll('.classic-button');
 
-    // Check if buttons are found
-    if (buttons.length === 0) {
-      console.log('No buttons found with the class "classic-button".');
-      return;
-    }
-
-    // Loop through each button
     buttons.forEach(button => {
-      console.log(`Checking button: ${button.textContent.trim()}`);
-      
-      // Check if the button's text content matches "Book Now"
+
       if (button.textContent.trim() === buttonText) {
-        console.log('Button text matches "Book Now"');
-        
-        // Check if the button's href matches the old link
         if (button.href === oldLink) {
-          console.log('Button href matches the old link');
-          
-          // Update the button's href to the new link
           button.href = newLink;
-          console.log('Button href updated to the new link');
         } else {
           console.log(`Button href does not match the old link: ${button.href}`);
         }
