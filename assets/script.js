@@ -37,7 +37,7 @@ const replacePhoneNumber = () => {
 };
 
 const replaceContactLink = () => {
-  const newLink = "/contact-us.html";
+  const newLink = "/book-online.html";
 
   const links = document.querySelectorAll('a[href="#form-section"]');
   console.log(links);
@@ -284,21 +284,6 @@ Promise.all([renderFooter(), renderBtns(), renderContactBanner()])
   /*----waiting for dynamic pieces to execute phone script insertion------*/
 
   /*----handling phone script in pages with less than 2 dynamic renders------*/
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const oldLink = '/contact-us';
-    const newLink = '/book-online';
-
-    const buttons = document.querySelectorAll('.classic-button');
-
-    buttons.forEach(button => {
-
-        if (button.href === oldLink) {
-          button.href = newLink;
-          console.log("replacing btns links");
-        }
-    });
-  });
 
 /*Executions*/
 
