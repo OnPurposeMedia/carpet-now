@@ -59,8 +59,10 @@
 
 .contact-section {
     display: flex;
+    flex-direction: column-reverse;
     width: 1290px;
     justify-content: center;
+    align-items: center;
     gap: 50px;
     padding: 50px 25px 50px 50px;
     margin-bottom: 50px;
@@ -200,10 +202,9 @@
     }
 
     .contact-section {
-        flex-direction: column-reverse;
         padding: 25px;
         width: 100%;
-        gap: 0;
+        gap: 100px;
     }
 
     .contact-us-text {
