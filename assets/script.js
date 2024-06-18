@@ -288,21 +288,15 @@ Promise.all([renderFooter(), renderBtns(), renderContactBanner()])
   document.addEventListener('DOMContentLoaded', () => {
     const oldLink = '/contact-us';
     const newLink = '/book-online';
-    const buttonText = 'book now';
 
     const buttons = document.querySelectorAll('.classic-button');
 
     buttons.forEach(button => {
 
-      if (button.textContent.trim() === buttonText) {
         if (button.href === oldLink) {
           button.href = newLink;
-        } else {
-          console.log(`Button href does not match the old link: ${button.href}`);
+          console.log("replacing btns links");
         }
-      } else {
-        console.log(`Button text does not match: ${button.textContent.trim()}`);
-      }
     });
   });
 
