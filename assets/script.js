@@ -291,6 +291,21 @@ const phoneSwapIfNotDynamic = () => {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const oldLink = 'https://call-carpetnow.com/contact-us';
+  const newLink = 'https://call-carpetnow.com/book-online';
+  const buttonText = 'book now';
+  const buttons = document.querySelectorAll('.classic-button');
+
+  buttons.forEach(button => {
+    if (button.textContent.trim() === buttonText) {
+      if (button.href === oldLink) {
+        button.href = newLink;
+      }
+    }
+  });
+});
+
 /*Executions*/
 
 renderCards();
