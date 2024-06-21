@@ -58,11 +58,10 @@ const loadPhoneNumberScript = () => {
 
   const script2 = document.createElement('script');
   script2.text = `var $wc_load=function(a){return JSON.parse(JSON.stringify(a))},$wc_leads=$wc_leads||{doc:{url:$wc_load(document.URL),ref:$wc_load(document.referrer),search:$wc_load(location.search),hash:$wc_load(location.hash)}};`;
-<script src="//s.ksrndkehqnwntyxlhgto.com/120658.js"></script>
   document.head.appendChild(script2);
 
   const script1 = document.createElement('script');
-  script1.src = '//s.ksrndkehqnwntyxlhgto.com/128110.js';
+  script1.src = '//s.ksrndkehqnwntyxlhgto.com/120658.js';
   script1.onerror = () => console.error('Failed to load script1');
   document.head.appendChild(script1);
 };
